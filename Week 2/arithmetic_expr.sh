@@ -1,23 +1,20 @@
-#! /bin/sh
+# !/bin/sh
 
-echo "Enter first number"
-read a
+#Write a shell program to perform the basic Airthmetic Operations using expr command 
+#Addition,Subtraction,Multiplication and Division
 
-echo "Enter second number"
-read b
+read -p "Enter two numbers:" a b
 
-sum=`expr $a + $b`
+add=`expr $a + $b`
+sub=`expr $a - $b`
+mul=`expr $a \* $b`
+div=`expr $a / $b`
 
-difference=`expr $a - $b`
+echo "Sum = $add\nDifference = $sub\nProduct = $mul\nDivision = $div"
 
-product=`expr $a \* $b`
+# Enter two numbers:10 2
+# Sum = 12
+# Difference = 8
+# Product = 20
+# Division = 5
 
-modulus=`expr $a % $b`
-
-quotient=`expr $a / $b`
-
-echo "Sum: "$sum
-echo "Difference: "$difference
-echo "Product: "$product
-echo "Mod: "$modulus
-echo "Quotient: "$quotient

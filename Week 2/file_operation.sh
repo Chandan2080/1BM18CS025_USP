@@ -1,29 +1,74 @@
 #! /bin/sh
+#Write a shell Program to accept a filename from the 
+#User and display the attributes,contents and word 
+#count of the file Perform copy,rename  operation by 
+#accepting two filenames from the user
 
-echo 'Enter  file name 1'
-read filename1
+echo "Enter the file's name"
+read filename
 
-echo 'Enter file name 2'
-read filename2
+echo "\nAttributes of the file are"
+stat $filename
 
-echo 'File Name : '
-echo $filename1
+echo "\nContents of the file are:\n"
+cat $filename
 
-echo 'The file contents are : '
-cat $filename1
+res=$( wc -w <"$filename" )
+echo "\nWord count : $res"
 
-echo 'Attributes: '
-ls -l $filename1
+echo "\nEnter the file's name which you want to rename\n"
+read original
 
-echo 'Word Count: '
-wc $filename1
+echo "\nEnter the new name you want to give to the file"
+read newname
 
-$(mv $filename1 $filename2)
+mv $original $newname
 
-echo "Enter filename to which contents has to be copied" 
-read filename3
+echo "\nFile renamed"
 
-$(cp $filename1 $filename3)
+echo "\nEnter two file names:"
+read f1 f2
 
-echo "Contents of files after performing copy operation: "
-cat $filename3
+echo "\nCopying file 1 to file 2..."
+cp $f1 $f2
+echo "\nDone"
+
+
+# Enter the file's name
+# file1.txt
+# 
+# Attributes of the file are
+#   File: file1.txt
+#   Size: 43        	Blocks: 8          IO Block: 4096   regular file
+# Device: 801h/2049d	Inode: 661762      Links: 1
+# Access: (0644/-rw-r--r--)  Uid: ( 1000/    user)   Gid: ( 1000/    user)
+# Access: 2020-10-01 14:52:37.601758587 +0530
+# Modify: 2020-10-01 14:52:28.697308587 +0530
+# Change: 2020-10-01 14:52:28.701310587 +0530
+#  Birth: -
+# 
+# Contents of the file are:
+# 
+# A quick brown fox
+# jumps over the 
+# lazy dog
+# 
+# Word count : 9
+# 
+# Enter the file's name which you want to rename
+# 
+# file2.txt
+# 
+# Enter the new name you want to give to the file
+# f2.txt
+# 
+# File renamed
+# 
+# Enter two file names:
+# file1.txt f2.txt
+# 
+# Copying file 1 to file 2...
+# 
+# Done
+
+
