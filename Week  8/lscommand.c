@@ -11,12 +11,12 @@ int main(int argc,char *argv[])
 		printf("Couldn't stat file");
 		exit(0);
 	}
-	printf("File: %s\n",argv[1]);
-	printf("Inode no : %ld\n",statbuf.st_ino);
-	printf("Type and permission:  %o\n",statbuf.st_mode );
-	printf("No of links: %ld\n",statbuf.st_nlink);
-	printf("UID : %d\n",statbuf.st_uid);
-	printf("GID : %d\n",statbuf.st_gid);
+	printf("File Name: %s\n",argv[1]);
+	printf("Inode number: %ld\n",statbuf.st_ino);
+	printf("File Type and Permission:  %o\n",statbuf.st_mode );
+	printf("Number of links: %ld\n",statbuf.st_nlink);
+	printf("UID: %d\n",statbuf.st_uid);
+	printf("GID: %d\n",statbuf.st_gid);
 	
 	exit(0);
 	
